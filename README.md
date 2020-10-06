@@ -3,7 +3,6 @@ Code and Data for our EMNLP 2020 paper titled 'Learning to Explain: Datasets and
 
 ### Data
 Data can be downloaded using instructions in data/ReadMe.md
-Data format can be understood through examples shown in ipython notebooks in data/
 
 
 ### Requirements
