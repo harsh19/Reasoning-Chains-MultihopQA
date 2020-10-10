@@ -46,7 +46,7 @@ A predictions file that has predictions in jsonl format. For example:
 
 ### Output metrics
 
-A JSON file that has three key-value pairs. The keys are as follows: 1) auc_roc 2) explainNDCG 3)explainNDCG. 
+A JSON file that has three key-value pairs. The keys are as follows: 1) auc_roc 2) explainP1 3)explainNDCG. 
 For example:
 ```bash
 % cat metrics.json 
