@@ -28,23 +28,33 @@ def evaluate_eqasc(fname1, split):
         chain_ids_covered.append(chain_id)
         cnt += 1
 
-    assert len(chain_ids_covered) == len(chainid_to_label)
+    assert len(chain_ids_covered) == len(chainid_to_label), "Found {} chains but expected {} chains".format(len(chain_ids_covered), len(chainid_to_label) ) 
     binclf_performance = f1eval.get_metric(reset=True)
     print("f1.get_metric() = ", binclf_performance )
     explanation_performance =  explanation_eval.get_metric(reset=True)
     print("explanation_eval.get_metric() = ", explanation_performance )
+    final_metrics = {
+            'auc_roc':binclf_performance['auc_roc'],
+            'explainP1':explanation_performance['explainP1'],
+            'explainNDCG':explanation_performance['explainNDCG']
+            }
     print("="*32)
     print(": auc_roc = ", binclf_performance['auc_roc'])
     print(": P1 = ", explanation_performance['explainP1'])
     print(": explainNDCG = ", explanation_performance['explainNDCG'])
     print("="*32)
-
+    return final_metrics
 
 if __name__ == '__main__':
     fname = sys.argv[1]
     mode = sys.argv[2]
     if mode == 'eqasc_test':
-        evaluate_eqasc(fname, split='test')
+        final_metrics = evaluate_eqasc(fname, split='test')
+    elif mode == 'eqasc_dev':
+        final_metrics = evaluate_eqasc(fname, split='dev')
+    else:
+        raise NotImplementedError
+    json.dump(final_metrics,open('metrics.json','w'))
 
-
-# env PYTHONPATH=. python allennlp_reasoning_explainqa/evaluator/evaluator.py predictions/grc.dev.predict eqasc_test
+# env PYTHONPATH=. python allennlp_reasoning_explainqa/evaluator/evaluator.py predictions/grc.test.predict eqasc_test
+# env PYTHONPATH=. python allennlp_reasoning_explainqa/evaluator/evaluator.py predictions/grc.dev.predict eqasc_dev
