@@ -12,7 +12,7 @@ Data can be downloaded using instructions in data/ReadMe.md
 
 
 ### Code
-Follow allennlp_reasoning_explainqa/Readme.md
+Follow code/Readme.md
 
 
 ### Reference
