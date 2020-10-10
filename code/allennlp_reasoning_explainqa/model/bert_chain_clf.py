@@ -284,9 +284,10 @@ class BinaryClassifierPredictor(Predictor):
         fw.write('\t'.join(vals))
         fw.write('\n')
         fw.close()
-        outputs["score"] = outputs["probs"][1]
-        outputs['chain_id'] = outputs["all_chains"][0][3]['chain_id']
-        return json.dumps(outputs) + "\n"
+        final_outputs = {}
+        final_outputs["score"] = outputs["probs"][1]
+        final_outputs['chain_id'] = outputs["all_chains"][0][3]['chain_id']
+        return json.dumps(final_outputs) + "\n"
 
 
 
@@ -388,7 +389,9 @@ class NewPredictor(Predictor):
         self._pred_label_dist[pred_label]+=1
         print("self._pred_label_dist = ", self._pred_label_dist)
         outputs["score"] = outputs["probs"][1]
-        return json.dumps(outputs) + "\n"
+        final_outputs = { 'chain_id':outputs['chain_id'], 'score':outputs['score']  }
+        #return json.dumps(outputs) + "\n"
+        return json.dumps(final_outputs) + "\n"
 
     @overrides
     def _json_to_instance(self, json_dict: JsonDict) -> Instance:
