@@ -9,6 +9,7 @@ Data can be downloaded using instructions in data/ReadMe.md
 - python 3.7.5
 - pytorch 1.6.0
 - allennlp 0.9.0
+- code/environment.yml is also provided
 
 
 ### Code
