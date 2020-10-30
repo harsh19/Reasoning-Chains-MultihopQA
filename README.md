@@ -1,3 +1,5 @@
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/learning-to-explain-datasets-and-models-for/reasoning-chain-explanations-on-eqasc)](https://paperswithcode.com/sota/reasoning-chain-explanations-on-eqasc?p=learning-to-explain-datasets-and-models-for)
+
 Code and Data for our EMNLP 2020 paper titled 'Learning to Explain: Datasets and Models for Identifying Valid Reasoning Chains in Multihop Question-Answering'
 
 
@@ -9,10 +11,11 @@ Data can be downloaded using instructions in data/ReadMe.md
 - python 3.7.5
 - pytorch 1.6.0
 - allennlp 0.9.0
+- code/environment.yml is also provided
 
 
 ### Code
-Follow allennlp_reasoning_explainqa/Readme.md
+Follow code/Readme.md
 
 
 ### Reference
@@ -25,3 +28,6 @@ Follow allennlp_reasoning_explainqa/Readme.md
   year={2020}
 }
 ```
+
+### Papers-with-code link
+https://paperswithcode.com/paper/learning-to-explain-datasets-and-models-for 
