@@ -208,7 +208,6 @@ class F1MeasureCustomRetrievalEval():
                    figname='roc_plot.png',
                    given_thresh=None):  # -> Dict[str,Float]:
         probs = np.array(self._probs)
-        probs = (probs - probs.min())/ (probs.max() - probs.min())
         gt = np.array(self._gt)
 
         auc_roc = 0
